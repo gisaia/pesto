@@ -1,6 +1,10 @@
 
 # Change Log
 
+## 1.4.4
+- HTTPS support
+
+
 ## 1.4.0
 - PESTO CLI now uses Typer to reduce code base
 - Add run commands to CLI to run processing (locally or in docker image) with pesto run
