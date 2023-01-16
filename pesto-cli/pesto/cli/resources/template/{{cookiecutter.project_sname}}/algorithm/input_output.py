@@ -6,12 +6,11 @@ from typing import List
 @dataclass
 class Input:
     image:np.array = definition(Definition.Image, required=True, description="Input image")
-    dict_parameter:dict = definition(Definition.Metadata, description="A dict parameter")
-    object_parameter:object = definition(Definition.Metadata, description="A dict parameter with more spec, of the form {'key':'value'}")
-    integer_parameter: int = field("A (integer) number parameter")
-    number_parameter: float = field(description="A (floating point) number parameter")
-    string_parameter: str = field(description="A string parameter")
-    geojson:object = user_definition("geojson")
+    dict_parameter:dict = definition(Definition.Metadata, description="A dict parameter", default_factory=dict)
+    object_parameter:object = definition(Definition.Metadata, description="A dict parameter with more spec, of the form {'key':'value'}", default=None)
+    integer_parameter: int = field("A (integer) number parameter", default=None)
+    number_parameter: float = field(description="A (floating point) number parameter", default=None)
+    string_parameter: str = field(description="A string parameter", default=None)
     
 @dataclass
 class Output:
@@ -23,4 +22,3 @@ class Output:
     string_output:str = field()
     image_list: List[np.array] = definition(Definition.Images, description="The output images")
     geojson:object = user_definition("geojson")
-    dict_parameter:dict = definition(Definition.Metadata, description="A dict parameter", default=None)

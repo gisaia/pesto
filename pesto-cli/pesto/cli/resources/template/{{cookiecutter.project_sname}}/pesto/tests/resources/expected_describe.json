@@ -4,17 +4,14 @@
     "gpu": 0,
     "ram": 8
   },
-  "email": "pesto@airbus.com",
-  "title": "algo-service",
+  "asynchronous": false,
   "description": "Pesto Template contains all the boilerplate you need to create a processing-factory project",
   "family": "detection",
-  "name": "algo-service",
   "organization": "pesto",
-  "asynchronous": false,
+  "title": "algo-service",
+  "name": "algo-service",
+  "email": "pesto@airbus.com",
   "version": "1.0.0.dev0",
-  "keywords": [
-    "detection"
-  ],
   "config": {
     "$schema": "http://json-schema.org/draft-06/schema#",
     "description": "Geo Process API config schema for algo-service",
@@ -43,6 +40,9 @@
     "title": "tile-object-detection-config",
     "type": "object"
   },
+  "keywords": [
+    "detection"
+  ],
   "template": "object-detection",
   "input": {
     "$schema": "http://json-schema.org/draft-06/schema#",
@@ -187,8 +187,13 @@
         "type": "number"
       },
       "object_parameter": {
-        "$ref": "#/definitions/Metadata",
-        "description": "A dict parameter with more spec, of the form {'key':'value'}"
+        "description": "A dict parameter with more spec, of the form {'key':'value'}",
+        "properties": {
+          "key": {
+            "type": "string"
+          }
+        },
+        "type": "object"
       },
       "string_parameter": {
         "description": "A string parameter",
@@ -326,19 +331,13 @@
     },
     "properties": {
       "areas": {
-        "$ref": "#/definitions/Polygons",
-        "description": "One Polygon"
+        "$ref": "#/definitions/Polygons"
       },
       "dict_output": {
-        "$ref": "#/definitions/Metadata",
-        "description": ""
-      },
-      "dict_parameter": {
-        "$ref": "#/definitions/Metadata",
-        "description": "A dict parameter"
+        "$ref": "#/definitions/Metadata"
       },
       "geojson": {
-        "description": "",
+        "description": "A Geojson.FeatureCollection containing only Polygons as geometries",
         "properties": {
           "features": {
             "items": {
@@ -381,22 +380,18 @@
         "type": "object"
       },
       "image": {
-        "$ref": "#/definitions/Image",
-        "description": "The output image"
+        "$ref": "#/definitions/Image"
       },
       "image_list": {
-        "$ref": "#/definitions/Images",
-        "description": "The output images"
+        "$ref": "#/definitions/Images"
       },
       "integer_output": {
         "type": "integer"
       },
       "number_output": {
-        "description": "",
         "type": "number"
       },
       "string_output": {
-        "description": "",
         "type": "string"
       }
     }
