@@ -1,6 +1,9 @@
 
 # Change Log
 
+## 1.5.0
+- PESTO provides an automatic schema generation: generation of the input & output json schemas based on the signature of the process function
+
 ## 1.4.0
 - PESTO CLI now uses Typer to reduce code base
 - Add run commands to CLI to run processing (locally or in docker image) with pesto run
